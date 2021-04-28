@@ -1,26 +1,31 @@
 const generatePassword = () => {
   let passwordLengthTxt = document.querySelector("#passwordLength").value;
   let passwordLength = parseInt(passwordLengthTxt);
-  let numberChars = "0123456789";
-  let upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let lowerChars = "abcdefghijklmnopqrstuvwxyz";
-  let specialChars = "!§$%&?_@";
-  let allChars = numberChars + upperChars + lowerChars + specialChars;
-  let randPasswordArray = Array(passwordLength);
-  randPasswordArray[0] = numberChars;
-  randPasswordArray[1] = upperChars;
-  randPasswordArray[2] = lowerChars;
-  randPasswordArray[3] = specialChars;
-  randPasswordArray = randPasswordArray.fill(allChars, 3);
-  let shuffledArr = shuffleArray(
-    randPasswordArray.map(function (x) {
-      return x[Math.floor(Math.random() * x.length)];
-    })
-  ).join("");
-  let newLi = document.createElement("li");
-  let text = document.createTextNode(shuffledArr);
-  newLi.appendChild(text);
-  document.querySelector(".result").appendChild(newLi);
+  if (passwordLength >= 4 && passwordLength <= 20) {
+    let numberChars = "0123456789";
+    let upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lowerChars = "abcdefghijklmnopqrstuvwxyz";
+    let specialChars = "!§$%&?_@";
+    let allChars = numberChars + upperChars + lowerChars + specialChars;
+    let randPasswordArray = Array(passwordLength);
+    randPasswordArray[0] = numberChars;
+    randPasswordArray[1] = upperChars;
+    randPasswordArray[2] = lowerChars;
+    randPasswordArray[3] = specialChars;
+    randPasswordArray = randPasswordArray.fill(allChars, 3);
+    let shuffledArr = shuffleArray(
+      randPasswordArray.map(function (x) {
+        return x[Math.floor(Math.random() * x.length)];
+      })
+    ).join("");
+    let newLi = document.createElement("li");
+    let text = document.createTextNode(shuffledArr);
+    newLi.appendChild(text);
+    document.querySelector(".result").appendChild(newLi);
+    document.querySelector("#passwordLength").value = "";
+  } else {
+    alert("Password length must be between 4 and 20");
+  }
 };
 
 function shuffleArray(array) {
