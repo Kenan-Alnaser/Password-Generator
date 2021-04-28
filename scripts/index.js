@@ -32,6 +32,8 @@ const generatePassword = () => {
     copyButton.classList.add("listBtn");
     deleteButton.classList.add("listBtn");
     newLi.appendChild(newContainer);
+    deleteButton.addEventListener("click", () => newLi.remove());
+    copyButton.addEventListener("click", check);
     document.querySelector("#passwordLength").value = "";
   } else {
     alert("Password length must be between 4 and 20");

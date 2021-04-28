@@ -1,3 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+.passwordGen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: white 1px solid;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-color: #be0000;
+  font-size: 1.5rem;
+}
+
+ul {
+  position: relative;
+  right: -2rem;
+  font-size: 1.5rem;
+}
+
+li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 /*# sourceMappingURL=main.css.map */
