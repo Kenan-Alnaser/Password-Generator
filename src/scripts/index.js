@@ -37,3 +37,10 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+const keyCheck = (e) => {
+  if (e.key == "Enter") generatePassword();
+};
+
+const userInput = document.querySelector("#passwordLength");
+userInput.addEventListener("keypress", keyCheck);
