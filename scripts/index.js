@@ -23,17 +23,12 @@ const generatePassword = () => {
     newLi.appendChild(text);
     document.querySelector(".result").appendChild(newLi);
     const newContainer = document.createElement("div");
-    const copyButton = document.createElement("button");
     const deleteButton = document.createElement("button");
-    copyButton.innerHTML = "📝";
     deleteButton.innerHTML = "✗";
-    newContainer.appendChild(copyButton);
     newContainer.appendChild(deleteButton);
-    copyButton.classList.add("listBtn");
     deleteButton.classList.add("listBtn");
     newLi.appendChild(newContainer);
     deleteButton.addEventListener("click", () => newLi.remove());
-    copyButton.addEventListener("click", check);
     document.querySelector("#passwordLength").value = "";
   } else {
     alert("Password length must be between 4 and 20");
