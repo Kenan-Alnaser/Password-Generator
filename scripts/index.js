@@ -1,4 +1,6 @@
-function generatePassword(passwordLength) {
+const generatePassword = () => {
+  let passwordLengthTxt = document.querySelector("#passwordLength").value;
+  let passwordLength = parseInt(passwordLengthTxt);
   let numberChars = "0123456789";
   let upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let lowerChars = "abcdefghijklmnopqrstuvwxyz";
@@ -10,12 +12,16 @@ function generatePassword(passwordLength) {
   randPasswordArray[2] = lowerChars;
   randPasswordArray[3] = specialChars;
   randPasswordArray = randPasswordArray.fill(allChars, 3);
-  return shuffleArray(
+  let shuffledArr = shuffleArray(
     randPasswordArray.map(function (x) {
       return x[Math.floor(Math.random() * x.length)];
     })
   ).join("");
-}
+  let newLi = document.createElement("li");
+  let text = document.createTextNode(shuffledArr);
+  newLi.appendChild(text);
+  document.querySelector(".result").appendChild(newLi);
+};
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
